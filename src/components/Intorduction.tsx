@@ -115,34 +115,36 @@ export default function Introduction() {
         <div className="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-8">
           <div className="w-64 h-64 md:w-96 md:h-96 relative rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 shadow-xl">
             <img
-              src="/placeholder.svg?height=400&width=400" // Ensure the path is correct and starts with a slash
-              alt="Your Name"
+              src="src/static/photo.JPG" // Ensure the path is correct and starts with a slash
+              alt="Sein Jone"
               className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             />
           </div>
           <div className="flex-grow space-y-6 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold">Your Name</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">Sein Jone Tan</h1>
             <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400">
-              Current Role
+              Research Assistant
             </p>
             <p
               className={`text-lg md:text-xl max-w-2xl ${
                 theme === "dark" ? "text-white" : "text-gray-800"
               }`}
             >
-              Welcome to my personal website! I'm a passionate developer with
-              expertise in React, Node.js, and cloud technologies. With a keen
-              eye for design and a love for clean code, I strive to create
-              seamless user experiences and robust backend systems. When I'm not
-              coding, you can find me exploring new technologies, contributing
-              to open-source projects, or enjoying a good book on software
-              architecture.
+              Welcome to my personal website! I'm a recent graduate from UBC's
+              MA Econ progam with a passion for data analysis and software
+              development. I'm currently seeking opportunities in data science,
+              software engineering, and research. This website showcases my
+              reearch as well as demos for my personal projects. Feel free to
+              reach out to me if you have any questions or opportunities! The
+              source code for this website is available on GitHub.
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <Button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors">
-                <FileText size={18} />
-                View CV
-              </Button>
+              <a href="src/static/resume.pdf" download>
+                <Button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors">
+                  <FileText size={18} />
+                  View CV
+                </Button>
+              </a>
               <Button
                 variant="outline"
                 className="flex items-center gap-2 border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-gray-800 transition-colors"

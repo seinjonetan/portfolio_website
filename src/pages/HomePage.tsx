@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import ResumeTimeline from "@/components/ResumeTimeline";
 import Introduction from "@/components/Intorduction";
 import SkillsList from "@/components/SkillsList";
+import { skillsData } from "@/static/skillsData";
+import "./HomePage.css";
 
 type Experience = {
   id: string;
@@ -12,9 +14,9 @@ type Experience = {
   endDate: string;
   title: string;
   institution: string;
-  description: string;
+  description?: string;
   type: "education" | "professional";
-  children: JSX.Element;
+  children?: JSX.Element;
 };
 
 type CardDetails = {
@@ -29,26 +31,90 @@ const workCardDetails: CardDetails = {
 
 const workExperience: Experience[] = [
   {
-    id: "1",
-    startDate: "2020-01-01",
-    endDate: "2021-01-01",
-    title: "Software Engineer",
-    institution: "Tech Company",
-    description:
-      "Developing scalable web applications using React and Node.js.",
+    id: "0",
+    startDate: "2024-05",
+    endDate: "Present",
+    title: "Research Assistant",
+    institution: "University of British Columbia",
     type: "professional",
     children: (
-      <div className="space-x-2">
-        <Button variant="outline" size="sm" className="hover:bg-slate-500">
-          View Projects
-        </Button>
-        <Button variant="outline" size="sm" className="hover:bg-slate-500">
-          Request Reference
-        </Button>
-      </div>
+      <ul className="custom-bullet-list">
+        <li>Professor Torsten Jaccard (Vancouver School of Economics)</li>
+        <li>Merging customs import data with grocery store scanner data</li>
+        <li>
+          Using Fuzzy matching & BERT nlp to identify misspelled machine read
+          ingredients
+        </li>
+        <li>Correlated city location choice</li>
+      </ul>
     ),
   },
-  // Add more experiences...
+  {
+    id: "1",
+    startDate: "2024-05",
+    endDate: "Present",
+    title: "Research Assistant",
+    institution: "University of British Columbia",
+    type: "professional",
+    children: (
+      <ul className="custom-bullet-list">
+        <li>Professor Scott Orr (Sauder School of Business)</li>
+        <li>Multi product markups with joint production in firms</li>
+        <li>
+          Vertically integrated firm identification of arms length corporations
+        </li>
+      </ul>
+    ),
+  },
+  {
+    id: "2",
+    startDate: "2024-05",
+    endDate: "2024-09",
+    title: "Graduate Academic Assistant",
+    institution: "University of British Columbia",
+    type: "professional",
+    children: (
+      <ul className="custom-bullet-list">
+        <li>
+          Designing R and Python workshops for students in the Masters in Food
+          Resource Economics program
+        </li>
+      </ul>
+    ),
+  },
+  {
+    id: "3",
+    startDate: "2023-09",
+    endDate: "2024-04",
+    title: "Graduate Teaching Assistant",
+    institution: "University of British Columbia",
+    type: "professional",
+    children: (
+      <ul className="custom-bullet-list">
+        <li>Taught Intermediate Microeconomics and International Finance</li>
+      </ul>
+    ),
+  },
+  {
+    id: "4",
+    startDate: "2022-10",
+    endDate: "2023-06",
+    title: "Research Analyst",
+    institution: "iFAST Corporation",
+    type: "professional",
+    children: (
+      <ul className="custom-bullet-list">
+        <li>
+          Created and maintained financial models to analyze market trends.
+        </li>
+        <li>
+          Provided investment recommendations to high net worth and retail
+          investors.
+        </li>
+        <li>Hosted public videos and large scale in person events.</li>
+      </ul>
+    ),
+  },
 ];
 
 const educationCardDetails: CardDetails = {
@@ -58,49 +124,45 @@ const educationCardDetails: CardDetails = {
 
 const educationExperience: Experience[] = [
   {
-    id: "2",
-    startDate: "2016-01-01",
-    endDate: "2020-01-01",
-    title: "Bachelor's Degree in Computer Science",
-    institution: "University",
-    description: "Graduated with honors.",
+    id: "6",
+    startDate: "2023-09",
+    endDate: "2024-08",
+    title: "MA in Economics",
+    institution: "University of British Columbia",
     type: "education",
     children: (
-      <Button variant="outline" size="sm" className="hover:bg-slate-500">
-        View Transcript
-      </Button>
+      <div>
+        <div className="mb-5">
+          <ul className="custom-bullet-list">
+            <li>Research Focus: Urban/Spatial Economics</li>
+          </ul>
+        </div>
+        <Button variant="outline" size="sm" className="hover:bg-slate-500">
+          View Research
+        </Button>
+      </div>
     ),
   },
-];
-
-const skillsData = [
   {
-    name: "Programming Languages",
-    skills: [
-      {
-        name: "JavaScript",
-        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-      },
-      { name: "Python", link: "https://www.python.org/" },
-      { name: "Java" },
-    ],
-  },
-  {
-    name: "Web Technologies",
-    skills: [
-      { name: "React", link: "https://reactjs.org/" },
-      { name: "Next.js", link: "https://nextjs.org/" },
-      { name: "HTML5" },
-      { name: "CSS3" },
-    ],
-  },
-  {
-    name: "Tools & Platforms",
-    skills: [
-      { name: "Git", link: "https://git-scm.com/" },
-      { name: "Docker" },
-      { name: "AWS" },
-    ],
+    id: "5",
+    startDate: "2019-09",
+    endDate: "2022-06",
+    title: "Hons BA Economics",
+    institution: "McMaster University",
+    type: "education",
+    children: (
+      <div>
+        <div className="mb-5">
+          <ul className="custom-bullet-list">
+            <li>Dean's Honour List 2020 - 2022</li>
+            <li>Graduated Summa Cum Laude</li>
+          </ul>
+        </div>
+        <Button variant="outline" size="sm" className="hover:bg-slate-500">
+          View Transcript
+        </Button>
+      </div>
+    ),
   },
 ];
 
