@@ -63,7 +63,7 @@ export function ContactForm({ id }) {
     >
       <div className="flex flex-col items-start gap-4">
         <div className="flex items-center gap-2">
-          <a href="#">
+          <a href="mailto:seinjonetan@gmail.com">
             <MailIcon
               className={`w-6 h-6 ${
                 theme === "dark"
@@ -72,11 +72,11 @@ export function ContactForm({ id }) {
               }`}
             />
           </a>
-          <span>Email me at example@email.com</span>
+          <span>Email me at seinjoentan@email.com</span>
         </div>
         <div className="flex items-center gap-4">
           <a
-            href="#"
+            href="https://github.com/seinjonetan/"
             className={`text-muted-foreground hover:text-primary hover:text-gray-600 ${
               theme === "dark" ? "text-white" : "text-black"
             }`}
@@ -84,7 +84,7 @@ export function ContactForm({ id }) {
             <GithubIcon className="w-6 h-6" />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/sein-jone-tan-01b7422a6/"
             className={`text-muted-foreground hover:text-primary hover:text-gray-600 ${
               theme === "dark" ? "text-white" : "text-black"
             }`}
@@ -105,8 +105,10 @@ export function ContactForm({ id }) {
           <CardHeader>
             <CardTitle>Get in touch</CardTitle>
             <CardDescription>
-              Fill out the form below and I'll get back to you as soon as
-              possible.
+              If you have any questions or would like to work together, feel
+              free to reach out and I'll get back to you as soon as possible.
+              Feel free to also leave a message to let me know what you think of
+              my website!
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
