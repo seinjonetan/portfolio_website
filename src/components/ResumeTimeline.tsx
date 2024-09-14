@@ -15,7 +15,7 @@ type Experience = {
   endDate: string;
   title: string;
   institution: string;
-  description: string;
+  description?: string;
   type: "education" | "professional";
   children?: JSX.Element;
 };

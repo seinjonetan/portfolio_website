@@ -1,0 +1,8 @@
+.custom-bullet-list {
+  list-style-type: disc; /* Adds bullets */
+  padding-left: 20px; /* Adds padding to the left */
+}
+
+.custom-bullet-list li {
+  margin-bottom: 10px; /* Adds spacing between lines */
+}
