@@ -137,9 +137,11 @@ const educationExperience: Experience[] = [
             <li>Research Focus: Urban/Spatial Economics</li>
           </ul>
         </div>
-        <Button variant="outline" size="sm" className="hover:bg-slate-500">
-          View Research
-        </Button>
+        <a href="/research">
+          <Button variant="outline" size="sm" className="hover:bg-slate-500">
+            View Research
+          </Button>
+        </a>
       </div>
     ),
   },
@@ -158,9 +160,6 @@ const educationExperience: Experience[] = [
             <li>Graduated Summa Cum Laude</li>
           </ul>
         </div>
-        <Button variant="outline" size="sm" className="hover:bg-slate-500">
-          View Transcript
-        </Button>
       </div>
     ),
   },
