@@ -6,8 +6,8 @@ import "@mantine/core/styles.css";
 import HomePage from "./pages/HomePage";
 import ResearchPage from "./pages/ResearchPage";
 import ScraperPage from "./pages/ScraperPage";
+import NewsTempPage from "./pages/NewsTempPage";
 // import InvoicePage from "./pages/InvoicePage";
-// import NewsTempPage from "./pages/NewsTempPage";
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/research" element={<ResearchPage />} />
               <Route path="/scrape" element={<ScraperPage />} />
-              {/* <Route path="/invoice" element={<InvoicePage />} />
-              <Route path="/news" element={<NewsTempPage />} /> */}
+              <Route path="/news" element={<NewsTempPage />} />
+              {/* <Route path="/invoice" element={<InvoicePage />} /> */}
             </Routes>
           </Router>
         </CssVarsProvider>
