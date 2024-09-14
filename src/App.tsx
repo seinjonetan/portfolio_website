@@ -4,10 +4,10 @@ import { CssVarsProvider } from "@mui/joy";
 import { ThemeProvider } from "./ThemeProvider"; // Import the ThemeProvider
 import "@mantine/core/styles.css";
 import HomePage from "./pages/HomePage";
+import ResearchPage from "./pages/ResearchPage";
 // import InvoicePage from "./pages/InvoicePage";
 // import ScraperPage from "./pages/ScraperPage";
 // import NewsTempPage from "./pages/NewsTempPage";
-// import ResearchPage from "./pages/ResearchPage";
 
 function App() {
   return (
@@ -19,10 +19,10 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/research" element={<ResearchPage />} />
               {/* <Route path="/invoice" element={<InvoicePage />} />
               <Route path="/scrape" element={<ScraperPage />} />
-              <Route path="/news" element={<NewsTempPage />} />
-              <Route path="/research" element={<ResearchPage />} /> */}
+              <Route path="/news" element={<NewsTempPage />} /> */}
             </Routes>
           </Router>
         </CssVarsProvider>
