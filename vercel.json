@@ -5,7 +5,7 @@
       "src": "src/api/app.py",
       "use": "@vercel/python",
       "config": {
-        "pythonVersion": "3.12.2"
+        "pythonVersion": "3.12"
       }
     },
     {
