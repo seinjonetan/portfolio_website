@@ -14,6 +14,7 @@ const InvoicePage: React.FC = () => {
         The primary objective was to perform sentiment analysis on these pages using the BERT base uncased language model to determine if there is a negative bias towards conservative politicians. 
         The demo also features a websocket implementation to provide live updates on the scraping progress. 
         For a deeper understanding of the methodology and findings, you can refer to Guillermo's comprehensive paper linked below."
+        paperTitle="Righting the Writers: Assessing Bias in Wikipedia’s Political Content — An Event Study and Sentiment Analysis"
         paperUrl="https://github.com/gillyparra/righting_the_writers/blob/main/Summer_Research_Paper.pdf"
         socialLinks={[
           {
