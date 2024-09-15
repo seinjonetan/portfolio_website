@@ -72,7 +72,7 @@ export function ContactForm({ id }) {
               }`}
             />
           </a>
-          <span>Email me at seinjoentan@email.com</span>
+          <span>Email me at seinjoentan@gmail.com</span>
         </div>
         <div className="flex items-center gap-4">
           <a
@@ -105,10 +105,11 @@ export function ContactForm({ id }) {
           <CardHeader>
             <CardTitle>Get in touch</CardTitle>
             <CardDescription>
-              If you have any questions or would like to work together, feel
-              free to reach out and I'll get back to you as soon as possible.
-              Feel free to also leave a message to let me know what you think of
-              my website!
+              If you're interested in hiring me, collaborating on a project, or
+              simply want to leave a comment, please fill out the form below.
+              For those looking to hire or collaborate, don't forget to include
+              your contact information so I can get back to you as soon as
+              possible.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
