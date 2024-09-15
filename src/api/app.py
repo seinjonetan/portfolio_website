@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, render_template
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit
 import os
@@ -6,10 +6,139 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import wayback
 from tqdm import tqdm
+from datetime import datetime
+from weasyprint import HTML
+import io
+import pandas as pd
+import requests
+import zipfile
+import json
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})  # Enable CORS for all routes and origins
 socketio = SocketIO(app, cors_allowed_origins="*")
+
+def convert_json(csv, json_payload=None):
+    df = pd.read_csv(csv)
+    df.set_index('date', inplace=True)
+    json_payload = json.loads(json_payload)
+    invoice = []
+    for column in df.columns:
+        result = {
+            'items' : [], 
+            'to_addr' : {'person_name': column},
+            'duedate' : datetime.today().strftime("%B %-d, %Y"),
+            'from_addr' : json_payload
+        }
+        for index, value in df[column].items():
+            if pd.notna(value):
+                result['items'].append({
+                    'title': index, 
+                    'charge': value
+                })
+        invoice.append(result)
+    return invoice
+
+@app.route('/invoice', methods=['GET', 'POST'])
+def invoice():
+    if request.method == 'POST':
+        posted_data = request.get_json()
+    else:
+        posted_data = {}
+    today = datetime.today().strftime("%B %-d, %Y")
+    default_data = {
+        'duedate': 'August 1, 2019',
+        'from_addr': {
+            'addr1': '12345 Sunny Road',
+            'addr2': 'Sunnyville, CA 12345',
+            'company_name': 'Python Tip'
+        },
+        'items': [{
+                'charge': 300.0,
+                'title': 'website design'
+            },
+            {
+                'charge': 75.0,
+                'title': 'Hosting (3 months)'
+            },
+            {
+                'charge': 10.0,
+                'title': 'Domain name (1 year)'
+            }
+        ],
+        'to_addr': {
+            'person_name': 'John Dilly'
+        }
+    }
+
+    duedate = posted_data.get('duedate', default_data['duedate'])
+    from_addr = posted_data.get('from_addr', default_data['from_addr'])
+    to_addr = posted_data.get('to_addr', default_data['to_addr'])
+    items = posted_data.get('items', default_data['items'])
+
+    total = sum([i['charge'] for i in items])
+    rendered = render_template('invoice.html',
+                               date=today,
+                               from_addr=from_addr,
+                               to_addr=to_addr,
+                               items=items,
+                               total=total,
+                               duedate=duedate)
+    html = HTML(string=rendered)
+    rendered = html.write_pdf()
+    return rendered
+
+@app.route('/csv', methods=['POST'])
+def csv():
+    import json
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part"}), 400
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"error": "No selected file"}), 400
+    json_payload = request.form['json']
+    invoice_json = convert_json(file, json_payload)
+    socketio.emit('invoice', 'Data received. Generating invoices...')
+    pdfs = []
+    for json in invoice_json:
+        response = requests.post('http://127.0.0.1:5001/invoice', json=json)
+        pdfs.append(response.content)
+    zip_buffer = io.BytesIO()
+    socketio.emit('invoice', 'Invoices generated. Zipping...')
+    with zipfile.ZipFile(zip_buffer, 'w') as zip_file:
+        for i, pdf in enumerate(pdfs):
+            name = invoice_json[i]['to_addr']['person_name'].strip()
+            zip_file.writestr(f'invoice_{name}.pdf', pdf)
+    zip_buffer.seek(0)
+    return send_file(zip_buffer, as_attachment=True, download_name='invoices.zip')
+
+@app.route('/generate-csv', methods=['POST'])
+def generate_csv():
+    import csv
+    socketio.emit('template', 'Data received. Processing dates...')
+    files = request.files['file']
+    data = pd.read_csv(files)
+    data = list(data.columns)
+    now = datetime.now()
+    year = now.year
+    month = now.month
+    if month == 12:
+        next_month = datetime(year + 1, 1, 1)
+    else:
+        next_month = datetime(year, month + 1, 1)
+    days_in_month = (next_month - datetime(year, month, 1)).days
+    dates = [(datetime(year, month, day)).strftime("%Y-%m-%d") for day in range(1, days_in_month + 1)]
+    fieldnames = ['date'] + data
+    socketio.emit('template', 'Dates generated. Generating CSV...')
+    with open('/tmp/invoice_template.csv', 'w', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for date in dates:
+            row = {'date': date}
+            for name in data:
+                row[name] = ''
+            writer.writerow(row)
+    return send_file('/tmp/invoice_template.csv', as_attachment=True)
 
 @app.route('/scrape', methods=['POST'])
 def scrape():
