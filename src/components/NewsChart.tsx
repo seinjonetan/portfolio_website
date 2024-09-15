@@ -21,7 +21,7 @@ export default function NewsChart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("src/static/cache.json");
+        const response = await fetch("/static/cache.json");
         const jsonData = await response.json();
         console.log(jsonData);
 

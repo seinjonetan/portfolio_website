@@ -15,7 +15,7 @@ const port = process.env.PORT || 5000;
 // Get the directory name in ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const cacheFilePath = path.join(__dirname, '..', 'static', 'cache.json');
+const cacheFilePath = path.join(__dirname, '..', 'public', 'static', 'cache.json');
 
 // Middleware
 app.use(cors());

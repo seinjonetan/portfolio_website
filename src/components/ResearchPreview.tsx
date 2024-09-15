@@ -34,7 +34,7 @@ export default function ResearchPreview() {
 
   useEffect(() => {
     // Fetch the JSON data from the file
-    fetch("src/static/city_shock.json")
+    fetch("/static/city_shock.json")
       .then((response) => response.json())
       .then((jsonData) => {
         console.log("Fetched JSON data:", jsonData); // Log the fetched JSON data
@@ -107,7 +107,7 @@ export default function ResearchPreview() {
                   {" "}
                   {/* Set width to 70% of the card content */}
                   <Viewer
-                    fileUrl="src/static/latest.pdf" // Updated PDF file path
+                    fileUrl="/static/latest.pdf" // Updated PDF file path
                     onDocumentLoad={onDocumentLoadSuccess}
                     defaultScale={SpecialZoomLevel.PageWidth}
                   />

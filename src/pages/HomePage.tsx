@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import ResumeTimeline from "@/components/ResumeTimeline";
 import Introduction from "@/components/Intorduction";
 import SkillsList from "@/components/SkillsList";
-import { skillsData } from "@/static/skillsData";
+import { skillsData } from "../../public/static/skillsData";
 import "./HomePage.css";
 
 type Experience = {

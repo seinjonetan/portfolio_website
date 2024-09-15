@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/api/app.py",
+      "src": "api/app.py",
       "use": "@vercel/python",
       "config": {
         "pythonVersion": "3.12"
       }
     },
     {
-      "src": "src/api/server.js",
+      "src": "api/server.js",
       "use": "@vercel/node"
     },
     {
@@ -23,11 +23,11 @@
   "routes": [
     {
       "src": "/api/flask/(.*)",
-      "dest": "src/api/app.py"
+      "dest": "api/app.py"
     },
     {
       "src": "/api/node/(.*)",
-      "dest": "src/api/server.js"
+      "dest": "api/server.js"
     },
     {
       "src": "/(.*)",

@@ -115,7 +115,7 @@ export default function Introduction() {
         <div className="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-8">
           <div className="w-64 h-64 md:w-96 md:h-96 relative rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 shadow-xl">
             <img
-              src="src/static/photo.JPG" // Ensure the path is correct and starts with a slash
+              src="/static/photo.JPG" // Ensure the path is correct and starts with a slash
               alt="Sein Jone"
               className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             />
@@ -139,7 +139,7 @@ export default function Introduction() {
               code for this website is available on GitHub.
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a href="src/static/resume.pdf" download>
+              <a href="/static/resume.pdf" download>
                 <Button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors">
                   <FileText size={18} />
                   View CV
