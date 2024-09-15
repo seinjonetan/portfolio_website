@@ -75,7 +75,7 @@ export default function WebScraper() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4 space-y-8 mb-10">
+    <div className="w-full max-w-6xl mx-auto p-4 space-y-8 min-h-screen">
       <header className="text-center py-4">
         <h1 className="text-3xl font-bold">Web Scraper Tool</h1>
         <p className="text-muted-foreground">
