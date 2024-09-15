@@ -2,25 +2,22 @@ import React from "react";
 import { NavigationBar } from "@/components/NavigationBar";
 import { ContactForm } from "@/components/ContactForm";
 import DemoStory from "@/components/DemoStory";
-import NewsTemperatureChart from "@/components/NewsChart";
+import NewsChart from "@/components/NewsChart";
 
 const NewsTempPage: React.FC = () => {
   return (
     <div>
       <DemoStory
-        title="Amazing Demo"
-        description="This demo showcases our groundbreaking technology that revolutionizes the way we interact with data."
-        videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        paperTitle="Innovative Approaches in Data Interaction"
-        paperUrl="https://example.com/paper.pdf"
-        socialLinks={[
-          { type: "linkedin", url: "https://www.linkedin.com/in/johndoe" },
-          { type: "twitter", url: "https://twitter.com/johndoe" },
-          { type: "github", url: "https://github.com/johndoe" },
-        ]}
+        title="News Thermometer"
+        description="This demo showcases a tool designed to scrape the internet for news articles and perform sentiment analysis on the extracted text. 
+        The sentiment analysis is conducted using advanced natural language processing techniques, where the 'temperature' is calculated as the difference between negative and positive sentiments. 
+        A higher temperature indicates more negative sentiment. 
+        Below, you'll find a line graph component that allows users to select specific dates to view the sentiment data. 
+        Users can toggle between viewing the temperature and raw sentiment scores. 
+        Please note that selecting dates for which data is unavailable will result in no data being displayed."
       />
       <NavigationBar />
-      <NewsTemperatureChart />
+      <NewsChart />
       <ContactForm id="contact" />
     </div>
   );

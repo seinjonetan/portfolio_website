@@ -44,11 +44,12 @@ export default function NewsChart() {
   );
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4 space-y-4">
+    <div className="w-full max-w-6xl mx-auto p-4 space-y-4 min-h-screen">
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-2">Daily News Temperature</h2>
         <p className="text-lg text-gray-600">
-          Track the daily temperature and confidence levels
+          Track the daily news temperature and take a look at sentiment
+          confidence levels.
         </p>
       </div>
       <div className="flex flex-col lg:flex-row gap-4">
