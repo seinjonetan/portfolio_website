@@ -7,7 +7,7 @@ import ScrapedDataPreview from "./ScrapedDataPreview";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5001"); // Adjust the URL to match your server
+const socket = io("http://127.0.0.1:5001"); // Adjust the URL to match your server
 
 // Define the type for scrapedData
 type ScrapedDataType = {
