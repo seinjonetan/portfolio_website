@@ -1,0 +1,40 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "src/api/app.py",
+        "use": "@vercel/python",
+        "config": {
+          "serverless": true
+        }
+      },
+      {
+        "src": "src/api/server.js",
+        "use": "@vercel/node",
+        "config": {
+          "serverless": true
+        }
+      },
+      {
+        "src": "vite.config.js",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/flask/(.*)",
+        "dest": "src/api/app.py"
+      },
+      {
+        "src": "/api/node/(.*)",
+        "dest": "src/api/server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/dist/$1"
+      }
+    ]
+  }
