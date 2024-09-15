@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Linkedin, Twitter, Github } from "lucide-react";
+import { Linkedin, Twitter, Github, Globe } from "lucide-react";
 
 export default function DemoStory({
   title,
@@ -8,19 +8,23 @@ export default function DemoStory({
   paperTitle,
   paperUrl,
   socialLinks,
+  socialHeading, // Add new prop
 }: {
   title: string;
   description: string;
-  videoUrl: string;
+  videoUrl?: string; // Make videoUrl optional
   paperTitle?: string;
   paperUrl?: string;
-  socialLinks?: { type: "linkedin" | "twitter" | "github"; url: string }[];
+  socialLinks?: {
+    type: "linkedin" | "twitter" | "github" | "website";
+    url: string;
+  }[];
+  socialHeading?: string; // Add new prop type
 }) {
   return (
     <div className="w-full min-h-screen bg-background text-foreground">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 pt-28">
         <h1 className="text-3xl font-bold mb-8">{title}</h1>
-
         <div className="grid grid-cols-1 gap-8">
           <div className="space-y-6">
             <Card disableHover>
@@ -31,19 +35,23 @@ export default function DemoStory({
             </Card>
           </div>
 
-          <div className="space-y-6">
-            <Card className="w-full">
-              <CardContent className="pt-6">
-                <h2 className="text-2xl font-semibold mb-4">Tutorial Video</h2>
-                <iframe
-                  src={videoUrl}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-96 rounded-lg"
-                ></iframe>
-              </CardContent>
-            </Card>
-          </div>
+          {videoUrl && (
+            <div className="space-y-6">
+              <Card className="w-full">
+                <CardContent className="pt-6">
+                  <h2 className="text-2xl font-semibold mb-4">
+                    Tutorial Video
+                  </h2>
+                  <iframe
+                    src={videoUrl}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-96 rounded-lg"
+                  ></iframe>
+                </CardContent>
+              </Card>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {paperTitle && paperUrl && (
@@ -66,7 +74,7 @@ export default function DemoStory({
               <Card>
                 <CardContent className="pt-6">
                   <h2 className="text-2xl font-semibold mb-4">
-                    Connect with Us
+                    {socialHeading || "Connect with Us"}
                   </h2>
                   <div className="flex space-x-4">
                     {socialLinks.map((link, index) => (
@@ -75,11 +83,12 @@ export default function DemoStory({
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-primary hover:text-primary/80"
+                        className="text-primary hover:text-gray-600"
                       >
                         {link.type === "linkedin" && <Linkedin size={24} />}
                         {link.type === "twitter" && <Twitter size={24} />}
                         {link.type === "github" && <Github size={24} />}
+                        {link.type === "website" && <Globe size={24} />}
                       </a>
                     ))}
                   </div>
