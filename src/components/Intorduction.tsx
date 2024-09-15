@@ -131,12 +131,12 @@ export default function Introduction() {
               }`}
             >
               Welcome to my personal website! I'm a recent graduate from UBC's
-              MA Econ progam with a passion for data analysis and software
+              MA Econ program with a passion for data analysis and software
               development. I'm currently seeking opportunities in data science,
               software engineering, and research. This website showcases my
-              reearch as well as demos for my personal projects. Feel free to
-              reach out to me if you have any questions or opportunities! The
-              source code for this website is available on GitHub.
+              research as well as demos for my personal projects. Feel free to
+              reach out if you have any questions or opportunities! The source
+              code for this website is available on GitHub.
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <a href="src/static/resume.pdf" download>

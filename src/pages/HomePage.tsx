@@ -26,7 +26,7 @@ type CardDetails = {
 
 const workCardDetails: CardDetails = {
   title: "Work Experience",
-  description: "My professional experience in software development.",
+  description: "My professional experience in finance and research.",
 };
 
 const workExperience: Experience[] = [
@@ -119,7 +119,7 @@ const workExperience: Experience[] = [
 
 const educationCardDetails: CardDetails = {
   title: "Education",
-  description: "My academic background in computer science.",
+  description: "My academic background in Econ.",
 };
 
 const educationExperience: Experience[] = [
