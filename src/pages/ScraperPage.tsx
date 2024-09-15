@@ -8,16 +8,24 @@ const InvoicePage: React.FC = () => {
   return (
     <div>
       <DemoStory
-        title="Amazing Demo"
-        description="This demo showcases our groundbreaking technology that revolutionizes the way we interact with data."
-        videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        paperTitle="Innovative Approaches in Data Interaction"
-        paperUrl="https://example.com/paper.pdf"
+        title="Wikipedia Webscraper"
+        description="This demo showcases some simple webscraping logic for historical snapshots of wikipedia pages using the wayback machine. 
+        This demo begain as a tool who my friend Guillermo used to scrape wikipedia for historical snapshots of pages for politicians. 
+        He performed sentiment analysis on these pages using a language model to determine if there is a negative bias towards conservative politicians. 
+        You can read all about his paper using the link below. 
+        This demo returns the 3 oldest snapshots of any wikipedia page, which you will be able to download as a csv. 
+        It also uses websockets to update the page with the progress of the scraping."
+        paperTitle="Righting the Writers: Assessing Bias in Wikipedia’s Political Content — An Event Study and Sentiment Analysis"
+        paperUrl="https://github.com/gillyparra/righting_the_writers/blob/main/Summer_Research_Paper.pdf"
         socialLinks={[
-          { type: "linkedin", url: "https://www.linkedin.com/in/johndoe" },
-          { type: "twitter", url: "https://twitter.com/johndoe" },
-          { type: "github", url: "https://github.com/johndoe" },
+          {
+            type: "linkedin",
+            url: "https://www.linkedin.com/in/guillermo-parra-1b2290189/",
+          },
+          { type: "github", url: "https://github.com/gillyparra" },
+          { type: "website", url: "https://guillermoparra.com/" },
         ]}
+        socialHeading="Connect with Guillermo"
       />
       <NavigationBar />
       <WebScraper />
