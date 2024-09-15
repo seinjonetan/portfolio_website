@@ -145,13 +145,15 @@ export default function Introduction() {
                   View CV
                 </Button>
               </a>
-              <Button
-                variant="outline"
-                className="flex items-center gap-2 border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-gray-800 transition-colors"
-              >
-                <Github size={18} />
-                Source Code
-              </Button>
+              <a href="https://github.com/seinjonetan/portfolio_website">
+                <Button
+                  variant="outline"
+                  className="flex items-center gap-2 border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-gray-800 transition-colors"
+                >
+                  <Github size={18} />
+                  Source Code
+                </Button>
+              </a>
             </div>
           </div>
         </div>
