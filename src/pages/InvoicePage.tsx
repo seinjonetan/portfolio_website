@@ -8,16 +8,13 @@ const InvoicePage: React.FC = () => {
   return (
     <div>
       <DemoStory
-        title="Amazing Demo"
-        description="This demo showcases our groundbreaking technology that revolutionizes the way we interact with data."
-        videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        paperTitle="Innovative Approaches in Data Interaction"
-        paperUrl="https://example.com/paper.pdf"
-        socialLinks={[
-          { type: "linkedin", url: "https://www.linkedin.com/in/johndoe" },
-          { type: "twitter", url: "https://twitter.com/johndoe" },
-          { type: "github", url: "https://github.com/johndoe" },
-        ]}
+        title="Invoice Generator"
+        description="This project began as a solution for a friend who needed to send invoices for lessons they conducted every month. 
+        The requirement was to generate an invoice for each student, with charges based on the number of hours their lessons took on any given day. 
+        This app simplifies the invoicing process by generating a CSV template for any given month when a CSV file containing students' names is uploaded. 
+        After filling out this template with the relevant lesson details and uploading the completed file, the app generates a ZIP file containing individual invoices for each student. 
+        The app also features real-time progress updates via websockets, ensuring users are informed throughout the process."
+        videoUrl="https://www.youtube.com/embed/s-mjPzXMvu8"
       />
       <NavigationBar />
       <Generator />
