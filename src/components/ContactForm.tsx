@@ -63,7 +63,7 @@ export function ContactForm({ id }) {
     >
       <div className="flex flex-col items-start gap-4">
         <div className="flex items-center gap-2">
-          <a href="mailto:seinjonetan@gmail.com">
+          <a href="mailto:seinjone@proton.me">
             <MailIcon
               className={`w-6 h-6 ${
                 theme === "dark"
@@ -72,7 +72,7 @@ export function ContactForm({ id }) {
               }`}
             />
           </a>
-          <span>Email me at seinjoentan@gmail.com</span>
+          <span>Email me at seinjone@proton.me</span>
         </div>
         <div className="flex items-center gap-4">
           <a
