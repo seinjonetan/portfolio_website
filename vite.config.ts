@@ -31,6 +31,9 @@ export default defineConfig(() => {
     base: "/",
     define: {
       PYTHON_API: `"${process.env.PYTHON_API}"`, // Use process.env.VALUE
+      MONGODB_URI: `"${process.env.MONGODB_URI}"`, // Use process.env.VALUE
+      PORT: `"${process.env.PORT}"`, // Use process.env.VALUE
+      NODE_API: `"${process.env.NODE_API}"`, // Use process.env.VALUE
     },
   };
 });

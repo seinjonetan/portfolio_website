@@ -30,7 +30,7 @@ export function ContactForm({ id }) {
     setStatus("Submitting...");
 
     try {
-      const response = await fetch("http://localhost:5000/submit", {
+      const response = await fetch(`${NODE_API}/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +63,7 @@ export function ContactForm({ id }) {
     >
       <div className="flex flex-col items-start gap-4">
         <div className="flex items-center gap-2">
-          <a href="mailto:seinjone@proton.me">
+          <a href="mailto:seinjonetan@proton.me">
             <MailIcon
               className={`w-6 h-6 ${
                 theme === "dark"
@@ -72,7 +72,7 @@ export function ContactForm({ id }) {
               }`}
             />
           </a>
-          <span>Email me at seinjone@proton.me</span>
+          <span>Email me at seinjonetan@proton.me</span>
         </div>
         <div className="flex items-center gap-4">
           <a
