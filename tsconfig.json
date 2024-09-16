@@ -9,21 +9,26 @@
     }
   ],
   "compilerOptions": {
+    "module": "ES2020",
+    "target": "ES2020",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "rollup/parseAst": ["./src/types/rollup.d.ts"] // Add this line
+      "rollup/parseAst": ["./src/types/rollup.d.ts"]
     },
-    "jsx": "react-jsx",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node16", // Ensure this line is present
-    "module": "Node16", // Ensure this line is present
-    "target": "ESNext", // Ensure this line is present
-    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Ensure this line is present
-    "strict": true, // Ensure this line is present
-    "skipLibCheck": true, // Ensure this line is present
-    "forceConsistentCasingInFileNames": true // Ensure this line is present
+    "noEmit": true, // Add this line to ensure no files are emitted
   }
 }

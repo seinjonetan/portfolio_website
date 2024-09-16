@@ -1,26 +1,36 @@
 import path from "path";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import dotenv from 'dotenv';
 
-export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+dotenv.config(); // Load env vars from .env
+
+export default defineConfig(() => {
+  // Load env file based on `mode` in the current working directory.
+
+  return {
+    plugins: [react()],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
     },
-  },
-  build: {
-    outDir: "dist",
-    sourcemap: true, // Ensure source maps are enabled
-    chunkSizeWarningLimit: 1000, // Increase chunk size warning limit if necessary
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          // Example of manual chunking
-          vendor: ['react', 'react-dom'],
+    build: {
+      outDir: "dist",
+      sourcemap: true, // Ensure source maps are enabled
+      chunkSizeWarningLimit: 1000, // Increase chunk size warning limit if necessary
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Example of manual chunking
+            vendor: ['react', 'react-dom'],
+          },
         },
       },
     },
-  },
-  base: "/",
+    base: "/",
+    define: {
+      PYTHON_API: `"${process.env.PYTHON_API}"`, // Use process.env.VALUE
+    },
+  };
 });

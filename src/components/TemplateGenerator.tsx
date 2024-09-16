@@ -8,7 +8,7 @@ import FileInput from "@/components/FileInput";
 import { io } from "socket.io-client";
 
 export default function TemplateGenerator() {
-  const socket = io("http://127.0.0.1:5001");
+  const socket = io(PYTHON_API);
   const [csvFile, setCsvFile] = useState<File | null>(null);
   const [template, setTemplate] = useState<string | null>(null);
   const [progressMessage, setProgressMessage] = useState<string | null>(null);
@@ -35,7 +35,7 @@ export default function TemplateGenerator() {
       data.append("file", csvFile);
     }
 
-    fetch("http://127.0.0.1:5001/generate-csv", {
+    fetch(`${PYTHON_API}/generate-csv`, {
       method: "POST",
       body: data,
     })

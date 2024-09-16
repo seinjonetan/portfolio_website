@@ -7,7 +7,7 @@ import ScrapedDataPreview from "./ScrapedDataPreview";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import io from "socket.io-client";
 
-const socket = io("http://127.0.0.1:5001"); // Adjust the URL to match your server
+const socket = io(PYTHON_API); // Adjust the URL to match your server
 
 // Define the type for scrapedData
 type ScrapedDataType = {
@@ -54,7 +54,7 @@ export default function WebScraper() {
     setPreview(""); // Clear previous preview data
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/scrape", {
+      const response = await fetch(`${PYTHON_API}/scrape`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -10,7 +10,7 @@ import FileInput from "@/components/FileInput";
 import { io } from "socket.io-client";
 
 export default function InvoiceGenerator() {
-  const socket = io("http://127.0.0.1:5001");
+  const socket = io(PYTHON_API);
   const [formData, setFormData] = useState({
     addr1: "",
     addr2: "",
@@ -51,7 +51,7 @@ export default function InvoiceGenerator() {
       data.append("file", csvFile);
     }
 
-    fetch("http://127.0.0.1:5001/csv", {
+    fetch(`${PYTHON_API}/csv`, {
       method: "POST",
       body: data,
     })
