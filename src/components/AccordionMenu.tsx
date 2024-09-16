@@ -31,17 +31,19 @@ export const AccordionMenu: FC<AccordionMenuProps> = ({
             </NavItem>
           </button>
           {isAboutOpen && (
-            <ul className="pl-4 mt-2 space-y-2">
-              {aboutItems.map((item) => (
-                <NavItem
-                  key={item.name}
-                  setIsAboutOpen={setIsAboutOpen}
-                  href={item.href}
-                >
-                  {item.name}
-                </NavItem>
-              ))}
-            </ul>
+            <div className="flex flex-wrap">
+              <ul className="pl-4 mt-2 space-y-2 flex-wrap">
+                {aboutItems.map((item) => (
+                  <NavItem
+                    key={item.name}
+                    setIsAboutOpen={setIsAboutOpen}
+                    href={item.href}
+                  >
+                    {item.name}
+                  </NavItem>
+                ))}
+              </ul>
+            </div>
           )}
         </li>
         {navItems.map((item) => (
