@@ -1,9 +1,0 @@
-Flask
-flask-cors
-flask-socketio
-beautifulsoup4
-pandas
-wayback
-tqdm
-weasyprint
-requests
