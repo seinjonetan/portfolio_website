@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { FileText } from "lucide-react";
 import { useTheme } from "@/ThemeProvider";
 import FileInput from "@/components/FileInput";
@@ -9,6 +11,10 @@ import { io } from "socket.io-client";
 
 export default function TemplateGenerator() {
   const socket = io(PYTHON_API);
+  const [formData, setFormData] = useState({
+    year: "",
+    month: "",
+  });
   const [csvFile, setCsvFile] = useState<File | null>(null);
   const [template, setTemplate] = useState<string | null>(null);
   const [progressMessage, setProgressMessage] = useState<string | null>(null);
@@ -25,12 +31,21 @@ export default function TemplateGenerator() {
     };
   }, []);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   const handleCsvFile = (file: File | null) => {
     setCsvFile(file);
   };
 
   const handleGenerateTemplate = () => {
     const data = new FormData();
+    data.append("json", JSON.stringify(formData));
     if (csvFile) {
       data.append("file", csvFile);
     }
@@ -55,6 +70,34 @@ export default function TemplateGenerator() {
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold">Template Generation</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="year">Year</Label>
+          <Input
+            id="year"
+            name="year"
+            placeholder="Enter Year (e.g. 2021) (Optional)"
+            value={formData.year}
+            onChange={handleChange}
+            className={`${
+              theme === "dark" ? "hover:bg-slate-800" : "hover:bg-gray-200"
+            }`}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="addr2">Month</Label>
+          <Input
+            id="month"
+            name="month"
+            placeholder="Enter Month (e.g. 1) (Optional)"
+            value={formData.month}
+            onChange={handleChange}
+            className={`${
+              theme === "dark" ? "hover:bg-slate-800" : "hover:bg-gray-200"
+            }`}
+          />
+        </div>
+      </div>
       <div className="space-y-4">
         <FileInput
           onChange={handleCsvFile}
