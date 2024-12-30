@@ -123,20 +123,21 @@ export default function Introduction() {
           <div className="flex-grow space-y-6 text-center md:text-left">
             <h1 className="text-4xl md:text-5xl font-bold">Sein Jone Tan</h1>
             <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400">
-              Research Assistant
+              Predictive Modeler / Part time Research Assistant
             </p>
             <p
               className={`text-lg md:text-xl max-w-2xl ${
                 theme === "dark" ? "text-white" : "text-gray-800"
               }`}
             >
-              Welcome to my personal website! I'm a recent graduate from UBC's
-              MA Econ program with a passion for data analysis and software
-              development. I'm currently seeking opportunities in data science,
-              software engineering, and research. This website showcases my
-              research as well as demos for my personal projects. Feel free to
-              reach out if you have any questions or opportunities! The source
-              code for this website is available on GitHub.
+              Welcome! I'm a recent UBC graduate with a Master's in Economics,
+              currently working as a Predictive Modeler at Sitewise Analytics.
+              My passion lies in data analysis and software development, where I
+              love solving complex problems. This website serves as a portfolio
+              of my research and personal projects. You'll find live demos,
+              detailed write-ups, and insights into my work. All the source code
+              for this website is available on GitHub. Feel free to explore and
+              reach out if you'd like to collaborate or have any questions!
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <a href="/static/resume.pdf" download>

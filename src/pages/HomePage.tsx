@@ -31,6 +31,21 @@ const workCardDetails: CardDetails = {
 
 const workExperience: Experience[] = [
   {
+    id: "5",
+    startDate: "2024-11",
+    endDate: "Present",
+    title: "Predictive Modeller",
+    institution: "Sitewise Analytics",
+    type: "professional",
+    children: (
+      <ul className="custom-bullet-list">
+        <li>Predictive analytics for multi location brands </li>
+        <li>Insights used to place or relocate new stores</li>
+        <li>Working with demographic, traffic, and mobile data</li>
+      </ul>
+    ),
+  },
+  {
     id: "0",
     startDate: "2024-05",
     endDate: "Present",
@@ -76,7 +91,7 @@ const workExperience: Experience[] = [
     children: (
       <ul className="custom-bullet-list">
         <li>
-          Designing R and Python workshops for students in the Masters in Food
+          Designed R and Python workshops for students in the Masters in Food
           Resource Economics program
         </li>
       </ul>

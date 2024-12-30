@@ -105,11 +105,11 @@ export function ContactForm({ id }) {
           <CardHeader>
             <CardTitle>Get in touch</CardTitle>
             <CardDescription>
-              If you're interested in hiring me, collaborating on a project, or
-              simply want to leave a comment, please fill out the form below.
-              For those looking to hire or collaborate, don't forget to include
-              your contact information so I can get back to you as soon as
-              possible.
+              If you're interested in collaborating on a project or simply want
+              to leave a comment, please fill out the form below or better yet
+              send me an email. For those looking to collaborate, don't forget
+              to include your contact information so I can get back to you as
+              soon as possible.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
