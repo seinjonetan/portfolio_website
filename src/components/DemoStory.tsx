@@ -22,7 +22,7 @@ export default function DemoStory({
   socialHeading?: string; // Add new prop type
 }) {
   return (
-    <div className="w-full min-h-screen bg-background text-foreground">
+    <div className="w-full bg-background text-foreground">
       <div className="container mx-auto px-4 py-8 pt-28">
         <h1 className="text-3xl font-bold mb-8">{title}</h1>
         <div className="grid grid-cols-1 gap-8">
