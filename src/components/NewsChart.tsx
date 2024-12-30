@@ -16,6 +16,7 @@ export default function NewsChart() {
   const [startDate, setStartDate] = useState<Date>(new Date(2024, 8, 4));
   const [endDate, setEndDate] = useState<Date>(new Date());
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -32,6 +33,8 @@ export default function NewsChart() {
         setData(processedData);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -51,65 +54,73 @@ export default function NewsChart() {
           confidence levels.
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row gap-4">
-        <div className="w-full lg:w-3/4">
-          <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={filteredData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis
-                dataKey="date"
-                tickFormatter={(date) => new Date(date).toLocaleDateString()}
-              />
-              <YAxis />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: theme === "dark" ? "#1F2937" : "#FFFFFF",
-                  borderColor: theme === "dark" ? "#374151" : "#E5E7EB",
-                }}
-                labelStyle={{ color: theme === "dark" ? "#D1D5DB" : "#374151" }}
-              />
-              {!showConfidence && (
-                <Line
-                  type="monotone"
-                  dataKey="temperature"
-                  stroke={theme === "dark" ? "#10B981" : "#059669"}
-                  strokeWidth={2}
-                />
-              )}
-              {showConfidence && (
-                <>
-                  <Line
-                    type="monotone"
-                    dataKey="averagePositive"
-                    stroke={theme === "dark" ? "#34D399" : "#10B981"}
-                    strokeWidth={2}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="averageNeutral"
-                    stroke={theme === "dark" ? "#FBBF24" : "#F59E0B"}
-                    strokeWidth={2}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="averageNegative"
-                    stroke={theme === "dark" ? "#EF4444" : "#DC2626"}
-                    strokeWidth={2}
-                  />
-                </>
-              )}
-            </LineChart>
-          </ResponsiveContainer>
+      {isLoading ? (
+        <div className="flex items-center justify-center h-64 bg-gray-100 rounded-lg">
+          <p className="text-xl font-semibold text-gray-600">Loading...</p>
         </div>
-        <ChartControls
-          startDate={startDate}
-          endDate={endDate}
-          showConfidence={showConfidence}
-          setStartDate={setStartDate}
-          setEndDate={setEndDate}
-          setShowConfidence={setShowConfidence}
-        />
-      </div>
+      ) : (
+        <div className="flex flex-col lg:flex-row gap-4">
+          <div className="w-full lg:w-3/4">
+            <ResponsiveContainer width="100%" height={400}>
+              <LineChart data={filteredData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis
+                  dataKey="date"
+                  tickFormatter={(date) => new Date(date).toLocaleDateString()}
+                />
+                <YAxis />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: theme === "dark" ? "#1F2937" : "#FFFFFF",
+                    borderColor: theme === "dark" ? "#374151" : "#E5E7EB",
+                  }}
+                  labelStyle={{
+                    color: theme === "dark" ? "#D1D5DB" : "#374151",
+                  }}
+                />
+                {!showConfidence && (
+                  <Line
+                    type="monotone"
+                    dataKey="temperature"
+                    stroke={theme === "dark" ? "#10B981" : "#059669"}
+                    strokeWidth={2}
+                  />
+                )}
+                {showConfidence && (
+                  <>
+                    <Line
+                      type="monotone"
+                      dataKey="averagePositive"
+                      stroke={theme === "dark" ? "#34D399" : "#10B981"}
+                      strokeWidth={2}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="averageNeutral"
+                      stroke={theme === "dark" ? "#FBBF24" : "#F59E0B"}
+                      strokeWidth={2}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="averageNegative"
+                      stroke={theme === "dark" ? "#EF4444" : "#DC2626"}
+                      strokeWidth={2}
+                    />
+                  </>
+                )}
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          <ChartControls
+            startDate={startDate}
+            endDate={endDate}
+            showConfidence={showConfidence}
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+            setShowConfidence={setShowConfidence}
+          />
+        </div>
+      )}
     </div>
   );
 }
