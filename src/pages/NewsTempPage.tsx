@@ -14,7 +14,9 @@ const NewsTempPage: React.FC = () => {
         A higher temperature indicates more negative sentiment. 
         Below, you'll find a line graph component that allows users to select specific dates to view the sentiment data. 
         Users can toggle between viewing the temperature and raw sentiment scores. 
-        Please note that selecting dates for which data is unavailable will result in no data being displayed."
+        Please note that selecting dates for which data is unavailable will result in no data being displayed.
+        The chart may take a while to load, as it is querying an endpoint that takes a while to spin up.
+        I'm sorry, hosting is expensive, and I'm not making money on this website."
       />
       <NavigationBar />
       <NewsChart />
