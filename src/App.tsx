@@ -8,6 +8,7 @@ import ResearchPage from "./pages/ResearchPage";
 import ScraperPage from "./pages/ScraperPage";
 import NewsTempPage from "./pages/NewsTempPage";
 import InvoicePage from "./pages/InvoicePage";
+import ScreenshotPage from "./pages/ScreenshotPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/scrape" element={<ScraperPage />} />
               <Route path="/news" element={<NewsTempPage />} />
               <Route path="/invoice" element={<InvoicePage />} />
+              <Route path="/screenshot" element={<ScreenshotPage />} />
             </Routes>
           </Router>
         </CssVarsProvider>

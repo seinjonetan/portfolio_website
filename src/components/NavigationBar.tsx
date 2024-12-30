@@ -35,6 +35,7 @@ export function NavigationBar() {
     { name: "Web Scraper", href: "/scrape" },
     { name: "News Temp", href: "/news" },
     { name: "Invoice Generator", href: "/invoice" },
+    { name: "Screenshot Tool", href: "/screenshot" },
     { name: "Contact Me", href: "#contact" },
   ];
 
